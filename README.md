@@ -105,7 +105,7 @@ Analog In:
   
   * Init digital inputs or outputs at audio rate: **[out 11 ~ , in 12~ ( - [s bela_setDigital]** 
   
-  ![This is an image](/images/istance-sensor-1.png) 
+  ![This is an image](/images/distance-sensor-1.png) 
   
   * {{ :tamlab:lectures:digital:distance-sensor-1.png?nolink&600 |}}
   
