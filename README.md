@@ -93,7 +93,12 @@ Analog In:
   
   * Analog IN/OUT: **[dac~ 3 4 5 6 7 8 9 10] [adc~ 3 4 5 6 7 8 9 10]** -> Analog in/out 0-7
   
-  * Digital pins:  {{ :tamlab:lectures:digital:digital-output-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-output-2.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-2.png?nolink&400 |}}
+  * Digital pins:  
+  
+  ![This is an image](/images/digital-output-1.png) 
+  
+  
+  * {{ :tamlab:lectures:digital:digital-output-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-output-2.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-2.png?nolink&400 |}}
   
   * Bela Scope: 4 channels **[dac~ 27 28 29 30]**
   
