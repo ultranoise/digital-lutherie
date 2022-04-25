@@ -26,7 +26,9 @@ The general idea to add interaction is defining Synths (with Synthdef) where som
 For example: 
 
 <code>
+	
 s.waitForBoot{
+	
 	SynthDef('buttonControl', {arg inPin, outPin;
 	
 		var button = DigitalIn.ar(inPin);     //read button
