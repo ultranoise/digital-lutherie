@@ -101,12 +101,14 @@ Analog In:
   ![This is an image](/images/digital-input-2.png) 
   
   
-  * {{ :tamlab:lectures:digital:digital-output-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-output-2.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-2.png?nolink&400 |}}
-  
   * Bela Scope: 4 channels **[dac~ 27 28 29 30]**
   
-  * Init digital inputs or outputs at audio rate: **[out 11 ~ , in 12~ ( - [s bela_setDigital]** {{ :tamlab:lectures:digital:distance-sensor-1.png?nolink&600 |}}
-  *
+  * Init digital inputs or outputs at audio rate: **[out 11 ~ , in 12~ ( - [s bela_setDigital]** 
+  
+  ![This is an image](/images/istance-sensor-1.png) 
+  
+  * {{ :tamlab:lectures:digital:distance-sensor-1.png?nolink&600 |}}
+  
   * Examples: {{ :tamlab:lectures:digital:analog-input-1.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-4.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-5.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-7.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-1.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-3.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-5.png?nolink&600 |}}
   
   * Communicating Pd and C++, e.g. C++ (sensor catch) -> Pd (receive messages to synth) : https://learn.bela.io/tutorials/pure-data/advanced/custom-render/
