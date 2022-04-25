@@ -96,6 +96,9 @@ Analog In:
   * Digital pins:  
   
   ![This is an image](/images/digital-output-1.png) 
+  ![This is an image](/images/digital-output-2.png) 
+  ![This is an image](/images/digital-input-1.png) 
+  ![This is an image](/images/digital-input-2.png) 
   
   
   * {{ :tamlab:lectures:digital:digital-output-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-output-2.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-2.png?nolink&400 |}}
