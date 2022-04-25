@@ -28,8 +28,11 @@ For example:
 <code>
 s.waitForBoot{
 	SynthDef('buttonControl', {arg inPin, outPin;
+	
 		var button = DigitalIn.ar(inPin);     //read button
+	
 		DigitalOut.ar(outPin, button);        //switch on/off a LED
+	
 	}).add;	
 	
 	s.sync;
@@ -38,7 +41,7 @@ s.waitForBoot{
 };
 </code>
 
-Digital In/Out
+How to Digital In/Out from Buttons or Sensors:
 <code>
 SynthDef('buttonControl', {arg inPin, outPin;
 		var button = DigitalIn.ar(inPin);
