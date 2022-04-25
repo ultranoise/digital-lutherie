@@ -13,9 +13,8 @@ Writing Code with Pure Data: https://learn.bela.io/using-bela/languages/pure-dat
 
 # Supercollider Cheatsheet
 
-**Cheatsheet**
 
-Write your code within this block:
+Only write your code within this block:
 
 <code>
 s.waitForBoot{
