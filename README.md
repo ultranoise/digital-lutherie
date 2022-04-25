@@ -22,7 +22,8 @@ s.waitForBoot{
 };
 </code>
 
-The general idea defining Synths (with Synthdef) where some parameter depends on the digital or analog input readings. For example: 
+The general idea to add interaction is defining Synths (with Synthdef) where some parameter depends on the digital or analog input readings. 
+For example: 
 
 <code>
 s.waitForBoot{
