@@ -16,16 +16,16 @@ Writing Code with Pure Data: https://learn.bela.io/using-bela/languages/pure-dat
 
 Only write your code within this block:
 
-<code>
+```
 s.waitForBoot{
 	
 };
-</code>
+```
 
 The general idea to add interaction is defining Synths (with Synthdef) where some parameter depends on the digital or analog input readings. 
 For example: 
 
-<code>	
+```
 s.waitForBoot{
 	
 	SynthDef('buttonControl', {arg inPin, outPin;
@@ -40,11 +40,11 @@ s.waitForBoot{
 	
 	a = Synth('buttonControl', ['inPin', 7, 'outPin', 6]);
 };
-</code>
+```
 
 Digital In/Out from Buttons or Sensors:
 
-<code>
+```
 	
 SynthDef('buttonControl', {
 	
@@ -56,11 +56,11 @@ SynthDef('buttonControl', {
 	
 	}).add;
 	
-</code>
+```
 
 Analog In:
 
-<code>
+```
 	
 	SynthDef('ledFade', {
 	
@@ -78,6 +78,6 @@ Analog In:
 	
 	}).add;
 
-</code>
+```
 
 
