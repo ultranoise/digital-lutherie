@@ -80,4 +80,37 @@ Analog In:
 
 ```
 
+# Pure Data Cheatsheet
+
+  * Drag-&-Drop patch into the browser
+  
+  * Requirements: 
+  
+  1) _main.pd is the top level patch 
+  2) Remove any render.cpp from the project folder
+  
+  * AUDIO IN/OUT: **[adc~ 1 2] [dac~ 1 2]** 
+  
+  * Analog IN/OUT: **[dac~ 3 4 5 6 7 8 9 10] [adc~ 3 4 5 6 7 8 9 10]** -> Analog in/out 0-7
+  
+  * Digital pins:  {{ :tamlab:lectures:digital:digital-output-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-output-2.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-1.png?nolink&400 |}} {{ :tamlab:lectures:digital:digital-input-2.png?nolink&400 |}}
+  
+  * Bela Scope: 4 channels **[dac~ 27 28 29 30]**
+  
+  * Init digital inputs or outputs at audio rate: **[out 11 ~ , in 12~ ( - [s bela_setDigital]** {{ :tamlab:lectures:digital:distance-sensor-1.png?nolink&600 |}}
+  *
+  * Examples: {{ :tamlab:lectures:digital:analog-input-1.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-4.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-5.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-7.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-1.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-3.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-5.png?nolink&600 |}}
+  
+  * Communicating Pd and C++, e.g. C++ (sensor catch) -> Pd (receive messages to synth) : https://learn.bela.io/tutorials/pure-data/advanced/custom-render/
+  
+  * Crafting GUIs: https://learn.bela.io/the-ide/crafting-guis/
+  
+  * Reading files from sdcard: **[open /mnt/sd/sample01.wav( message to [readsf~]** (similar for writing with writesf~)
+  
+  * Sensor handling techniques: {{ :tamlab:lectures:digital:sensor1.png?nolink&800 |}} {{ :tamlab:lectures:digital:sensor2.png?nolink&800 |}} {{ :tamlab:lectures:digital:sensor3.png?nolink&800 |}} {{ :tamlab:lectures:digital:sensor4.png?nolink&800 |}}
+
+
+
+
+
 
