@@ -42,7 +42,8 @@ s.waitForBoot{
 };
 </code>
 
-How to Digital In/Out from Buttons or Sensors:
+Digital In/Out from Buttons or Sensors:
+
 <code>
 SynthDef('buttonControl', {arg inPin, outPin;
 	
@@ -54,15 +55,23 @@ SynthDef('buttonControl', {arg inPin, outPin;
 	
 </code>
 
-Analog In
+Analog In:
+
 <code>
 	SynthDef('ledFade', {
+	
 		var rate = AnalogIn.ar(0).exprange(0.3, 20);
+	
 		var amp = AnalogIn.ar(1);
+	
 		// returns a value from 0-1
+	
 		rate.poll(1); amp.poll(1);
+	
 		AnalogOut.ar(0, SinOsc.ar(rate).range(0.0, amp));
+	
 		// send to Analog Output 0
+	
 	}).add;
 
 </code>
