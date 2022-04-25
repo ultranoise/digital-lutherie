@@ -25,8 +25,7 @@ s.waitForBoot{
 The general idea to add interaction is defining Synths (with Synthdef) where some parameter depends on the digital or analog input readings. 
 For example: 
 
-<code>
-	
+<code>	
 s.waitForBoot{
 	
 	SynthDef('buttonControl', {arg inPin, outPin;
@@ -46,9 +45,13 @@ s.waitForBoot{
 How to Digital In/Out from Buttons or Sensors:
 <code>
 SynthDef('buttonControl', {arg inPin, outPin;
+	
 		var button = DigitalIn.ar(inPin);
+	
 		DigitalOut.ar(outPin, button);
+	
 	}).add;
+	
 </code>
 
 Analog In
