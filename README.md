@@ -47,6 +47,7 @@ Digital In/Out from Buttons or Sensors:
 <code>
 	
 SynthDef('buttonControl', {
+	
 		arg inPin, outPin;	
 		
 		var button = DigitalIn.ar(inPin);
