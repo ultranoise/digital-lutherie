@@ -106,19 +106,31 @@ Analog In:
   * Init digital inputs or outputs at audio rate: **[out 11 ~ , in 12~ ( - [s bela_setDigital]** 
   
   ![This is an image](/images/distance-sensor-1.png) 
+
   
-  * {{ :tamlab:lectures:digital:distance-sensor-1.png?nolink&600 |}}
+  * Examples: 
+  ![This is an image](/images/analog-input-1.png) 
+  ![This is an image](/images/analog-input-4.png) 
+  ![This is an image](/images/analog-input-5.png) 
+  ![This is an image](/images/analog-input-7.png) 
+  ![This is an image](/images/analog-output-1.png) 
+  ![This is an image](/images/analog-output-3.png) 
+  ![This is an image](/images/analog-output-5.png) 
   
-  * Examples: {{ :tamlab:lectures:digital:analog-input-1.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-4.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-5.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-input-7.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-1.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-3.png?nolink&600 |}} {{ :tamlab:lectures:digital:analog-output-5.png?nolink&600 |}}
   
-  * Communicating Pd and C++, e.g. C++ (sensor catch) -> Pd (receive messages to synth) : https://learn.bela.io/tutorials/pure-data/advanced/custom-render/
+  * Sensor handling techniques:
+  
+    ![This is an image](/images/sensor1.png)
+    ![This is an image](/images/sensor2.png)
+    ![This is an image](/images/sensor3.png)
+    ![This is an image](/images/sensor4.png)
+    
+    * Communicating Pd and C++, e.g. C++ (sensor catch) -> Pd (receive messages to synth) : https://learn.bela.io/tutorials/pure-data/advanced/custom-render/
   
   * Crafting GUIs: https://learn.bela.io/the-ide/crafting-guis/
   
   * Reading files from sdcard: **[open /mnt/sd/sample01.wav( message to [readsf~]** (similar for writing with writesf~)
-  
-  * Sensor handling techniques: {{ :tamlab:lectures:digital:sensor1.png?nolink&800 |}} {{ :tamlab:lectures:digital:sensor2.png?nolink&800 |}} {{ :tamlab:lectures:digital:sensor3.png?nolink&800 |}} {{ :tamlab:lectures:digital:sensor4.png?nolink&800 |}}
-
+    
 
 
 
