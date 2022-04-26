@@ -46,7 +46,7 @@ In this example ```var button = DigitalIn.ar(inPin);``` reads the digital input 
 
 Notice the instructions ```DigitalIn. and DigitalOut. ``` for accessing the digital pins. 
 
-Another examples for dealing with digital in/out:
+Here another example for managing digital in/out:
 
 ```
 	
