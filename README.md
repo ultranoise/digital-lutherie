@@ -143,7 +143,9 @@ SynthDef(\fm7BelaTest,
   
   * Stereo AUDIO IN/OUT through: **[adc~ 1 2] [dac~ 1 2]** 
   
-  * Physical in/out pins are accessed through adc~ and dac~. Audio rate signals and not control rate data are used to deal with them.	
+  * Analog in/out pins are accessed through adc~ and dac~. Audio rate signals and not control rate data are used to deal with them.
+  	
+  * Digital in/out pin are accessed through messages at control rate and it is also possible to deal with them at audio rate. 
   
   * Read Analog IN pins through [adc~ 3 4 5 6 7 8 9 10] (8 analog inputs). Write analog OUT pins through [dac~ 3 4 5 6 7 8 9 10]. Remember that Bela mini does not have analog out.
   
