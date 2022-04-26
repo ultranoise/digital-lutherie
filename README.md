@@ -141,11 +141,11 @@ SynthDef(\fm7BelaTest,
   	1) the top level patch has to have the name ```_main.pd```
   	2) in case you are using an existing project, remove any render.cpp from the project folder
   
-  * AUDIO IN/OUT: **[adc~ 1 2] [dac~ 1 2]** 
+  * Stereo AUDIO IN/OUT through: **[adc~ 1 2] [dac~ 1 2]** 
   
-  * Analog IN/OUT: **[dac~ 3 4 5 6 7 8 9 10] [adc~ 3 4 5 6 7 8 9 10]** -> Analog in/out 0-7. Remember that Bela mini does not have analog out.
+  * Read Analog IN pins or write analog OUT pins through: **[dac~ 3 4 5 6 7 8 9 10] [adc~ 3 4 5 6 7 8 9 10]** -> Analog in/out 0-7. Remember that Bela mini does not have analog out.
   
-  * Digital pins:  
+  * How to with digital pins:  
   
   ![This is an image](/images/digital-output-1.png) 
   ![This is an image](/images/digital-output-2.png) 
