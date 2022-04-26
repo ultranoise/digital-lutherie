@@ -97,6 +97,40 @@ Printing sensor values at the IDE console has to be done with the function ```po
 
 from the code in the last example. 
 
+Finally, if you want to can call SC3 plugins. The board has them installed. For example, the following code uses the FM7 plugin:
+
+```
+s.waitForBoot({
+
+SynthDef(\fm7BelaTest,
+	{|freq = 220, attackTime = 0.5, releaseTime = 4, gate = 1|
+    var ctls = [
+        // freq, phase, amp
+		[ freq, 0,    1   ],
+		[ freq*2, pi/2, 1],
+		[ 0,    0,    0   ],
+		[ 0,   0,    0   ],
+		[ 0,   0,    0   ],
+		[ 0,   0,    0   ]
+    ];
+	var mods = [
+		[SinOsc.kr(0.001,0, 1.3), SinOsc.kr(2,0,1), 0, SinOsc.kr(0.015,0,1), 0, 0],
+		[SinOsc.kr(0.0012,0, 0.3), SinOsc.kr(1.5,0,0.5), 0, SinOsc.kr(0.025,0,1), 0, 0],
+		[0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0]
+    ];
+	var env = EnvGen.kr(Env.adsr(attackTime, 1, 1, releaseTime),gate,doneAction:2);
+	var fm = FM7.ar(ctls, mods).at([0,1])*env;
+	Out.ar(0,fm);
+}).send(s);
+
+  s.sync;
+  ~synth = Synth(\fm7BelaTest, [\freq, 110, \attackTime, 3], target: s);
+});
+```
+
 # Pure Data Cheatsheet
 
   * Drag-&-Drop patch into the browser
