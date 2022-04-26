@@ -137,8 +137,8 @@ SynthDef(\fm7BelaTest,
   
   * Requirements for a patch to compile: 
   
-  	1) _main.pd is the top level patch 
-  	2) Remove any render.cpp from the project folder
+  	1) the top level patch has to have the name ```_main.pd```
+  	2) in case you are using an existing project, remove any render.cpp from the project folder
   
   * AUDIO IN/OUT: **[adc~ 1 2] [dac~ 1 2]** 
   
