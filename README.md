@@ -165,7 +165,7 @@ SynthDef(\fm7BelaTest,
 	![This is an image](/images/distance-sensor-1.png) 
   
   * Examples: 
-  ![This is an image](/images/analog-input-1.png) 
+  
   ![This is an image](/images/analog-input-4.png) 
   ![This is an image](/images/analog-input-5.png) 
   ![This is an image](/images/analog-input-7.png) 
