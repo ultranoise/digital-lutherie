@@ -69,6 +69,8 @@ Here another example for managing analog input:
 ```
 The function to read from an analog pin is ```AnalogIn.ar()```. In this case two pins are read (0 and 1) with two ```AnalogIn.ar()```
 
+In the Bela mini there are no analog out pins, only in the Bela (standard) board. So you cannot use the function ```AnalogOut.ar()``` or you will get the error ```AnalogOut Error: the UGen needs BELA analog outputs enabled```
+
 # Pure Data Cheatsheet
 
   * Drag-&-Drop patch into the browser
