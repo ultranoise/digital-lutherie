@@ -133,12 +133,12 @@ SynthDef(\fm7BelaTest,
 
 # Pure Data Cheatsheet
 
-  * Drag-&-Drop patch into the browser
+  * Create a new project and directly Drag-&-Drop Pd patch into the browser
   
-  * Requirements: 
+  * Requirements for a patch to compile: 
   
-  1) _main.pd is the top level patch 
-  2) Remove any render.cpp from the project folder
+  	1) _main.pd is the top level patch 
+  	2) Remove any render.cpp from the project folder
   
   * AUDIO IN/OUT: **[adc~ 1 2] [dac~ 1 2]** 
   
