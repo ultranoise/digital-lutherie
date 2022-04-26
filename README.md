@@ -133,6 +133,7 @@ SynthDef(\fm7BelaTest,
 
 # Pure Data Cheatsheet
 
+  * The workflow is: first edit a Pd patch in your computer then uploading it to the Bela board. You cannot edit them in the IDE. 
   * Create a new project and directly Drag-&-Drop Pd patch into the browser
   
   * Requirements for a patch to compile: 
