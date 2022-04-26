@@ -46,23 +46,7 @@ In this example ```var button = DigitalIn.ar(inPin);``` reads the digital input 
 
 Notice the instructions ```DigitalIn. and DigitalOut. ``` for accessing the digital pins. 
 
-Here another example for managing digital in/out:
-
-```
-	
-SynthDef('buttonControl', {
-	
-		arg inPin, outPin;	
-		
-		var button = DigitalIn.ar(inPin);
-	
-		DigitalOut.ar(outPin, button);
-	
-	}).add;
-	
-```
-
-Analog In:
+Here another example for managing analog input:
 
 ```
 	
