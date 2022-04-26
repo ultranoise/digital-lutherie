@@ -42,9 +42,11 @@ s.waitForBoot{
 };
 ```
 
-Here ```var button = DigitalIn.ar(inPin);``` reads the digital input and stores the read value in ```var button```
+In this example ```var button = DigitalIn.ar(inPin);``` reads the digital input and stores the read value in ```var button```
 
-Digital In/Out from Buttons or Sensors:
+Notice the instructions ```DigitalIn. and DigitalOut. ``` for accessing the digital pins. 
+
+Another examples for dealing with digital in/out:
 
 ```
 	
