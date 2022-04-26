@@ -42,7 +42,7 @@ s.waitForBoot{
 };
 ```
 
-In this example ```var button = DigitalIn.ar(inPin);``` reads the digital input and stores the read value in ```var button```
+In this example ```var button = DigitalIn.ar(inPin);``` reads the digital input and stores the read value in ```var button```. This value is used to change the ```outPin``` value with ```DigitalOut.```
 
 Notice the instructions ```DigitalIn. and DigitalOut. ``` for accessing the digital pins. 
 
