@@ -160,7 +160,7 @@ SynthDef(\fm7BelaTest,
   
   * The Bela IDE Scope is accessed through 4 channels **[dac~ 27 28 29 30]**
   
-  * It is also possible to init a digital pin as AUDIO RATE using a tilde in the message afte the pin nr: **[out 11 ~ , in 12~ ( - [s bela_setDigital]** 
+  * It is also possible to init a digital pin as AUDIO RATE using a tilde in the message afte the pin nr:
   
   ![This is an image](/images/distance-sensor-1.png) 
 
