@@ -91,10 +91,11 @@ s.waitForBoot{
 
 In the Bela mini there are no analog out pins, only in the Bela (standard) board. So you cannot use the function ```AnalogOut.ar()``` or you will get the error ```AnalogOut Error: the UGen needs BELA analog outputs enabled```
 
-Printing sensor values at the IDE console has to be done with the function ```poll``` because the values as read as audio signals. For example:
+Printing sensor values at the IDE console has to be done with the function ```poll``` because values are converted to audio signals. For example:
 
-```rate.poll(1); amp.poll(1);```
+```pitch.poll(1); gain.poll(1);```
 
+from the code in the last example. 
 
 # Pure Data Cheatsheet
 
