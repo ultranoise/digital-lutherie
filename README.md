@@ -46,7 +46,7 @@ In this example ```var button = DigitalIn.ar(inPin);``` reads the digital input 
 
 Notice the functions ```DigitalIn.ar() and DigitalOut.ar() ``` for accessing the digital pins. 
 
-Here another example for managing analog input:
+Here an example on how to read analog input:
 
 ```
 	
