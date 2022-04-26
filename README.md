@@ -44,7 +44,7 @@ s.waitForBoot{
 
 In this example ```var button = DigitalIn.ar(inPin);``` reads the digital input and stores the read value in ```var button```. This value is used to change the ```outPin``` value with ```DigitalOut.```
 
-Notice the instructions ```DigitalIn. and DigitalOut. ``` for accessing the digital pins. 
+Notice the functions ```DigitalIn.ar() and DigitalOut.ar() ``` for accessing the digital pins. 
 
 Here another example for managing analog input:
 
@@ -67,6 +67,7 @@ Here another example for managing analog input:
 	}).add;
 
 ```
+The function to read from an analog pin is ```AnalogIn.ar()```. In this case two pins are read (0 and 1) with two ```AnalogIn.ar()```
 
 # Pure Data Cheatsheet
 
