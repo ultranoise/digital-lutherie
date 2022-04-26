@@ -69,6 +69,26 @@ Here another example for managing analog input:
 ```
 The function to read from an analog pin is ```AnalogIn.ar()```. In this case two pins are read (0 and 1) with two ```AnalogIn.ar()```
 
+This could be an example of use: 
+
+```
+s.waitForBoot{
+	"Server Booted".postln;
+	(
+	SynthDef("AnalogIn-test",{ arg out=0;
+		// analog input 0 controls the pitch
+		var pitch = AnalogIn.ar(0).exprange( 200, 5000 );
+		// analog input 1 controls the amplitude
+		var gain = AnalogIn.ar(1); // returns a value from 0-1
+		Out.ar(0, SinOsc.ar(pitch).dup * gain);
+	}).send(s);
+	);
+
+	s.sync;
+	Synth.new("AnalogIn-test", target: s);
+};
+```
+
 In the Bela mini there are no analog out pins, only in the Bela (standard) board. So you cannot use the function ```AnalogOut.ar()``` or you will get the error ```AnalogOut Error: the UGen needs BELA analog outputs enabled```
 
 # Pure Data Cheatsheet
