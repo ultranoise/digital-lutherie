@@ -143,7 +143,7 @@ SynthDef(\fm7BelaTest,
   
   * AUDIO IN/OUT: **[adc~ 1 2] [dac~ 1 2]** 
   
-  * Analog IN/OUT: **[dac~ 3 4 5 6 7 8 9 10] [adc~ 3 4 5 6 7 8 9 10]** -> Analog in/out 0-7
+  * Analog IN/OUT: **[dac~ 3 4 5 6 7 8 9 10] [adc~ 3 4 5 6 7 8 9 10]** -> Analog in/out 0-7. Remember that Bela mini does not have analog out.
   
   * Digital pins:  
   
