@@ -157,7 +157,7 @@ SynthDef(\fm7BelaTest,
   ![This is an image](/images/digital-input-2.png) 
   
   
-  * Bela Scope: 4 channels **[dac~ 27 28 29 30]**
+  * The Bela IDE Scope is accessed through 4 channels **[dac~ 27 28 29 30]**
   
   * Init digital inputs or outputs at audio rate: **[out 11 ~ , in 12~ ( - [s bela_setDigital]** 
   
