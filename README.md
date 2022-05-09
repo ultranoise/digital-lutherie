@@ -180,6 +180,12 @@ SynthDef(\fm7BelaTest,
     ![This is an image](/images/sensor3.png)
     ![This is an image](/images/sensor4.png)
     
+    * Trill Craft configuration and reading:
+
+	![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-1.png)
+	![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-2.png)
+	
+	
     * Communicating Pd and C++, e.g. C++ (sensor catch) -> Pd (receive messages to synth) : https://learn.bela.io/tutorials/pure-data/advanced/custom-render/
   
   * Crafting GUIs: https://learn.bela.io/the-ide/crafting-guis/
@@ -188,6 +194,13 @@ SynthDef(\fm7BelaTest,
     
 
 
+# Trill Craft Essentials
 
+  * Bela guide: https://learn.bela.io/tutorials/trill-sensors/working-with-trill-craft/
+  * Changing the settings and sensitivity: https://learn.bela.io/using-trill/settings-and-sensitivity/
+  * Trill Craft with Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/
+  * How to connect it:
+  ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
+  * fdsfd
 
 
