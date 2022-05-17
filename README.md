@@ -197,7 +197,7 @@ SynthDef(\fm7BelaTest,
 
   * Bela guide: https://learn.bela.io/tutorials/trill-sensors/working-with-trill-craft/
   * Changing the settings and sensitivity: https://learn.bela.io/using-trill/settings-and-sensitivity/
-  * Trill Craft in Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/
+  * Trill Craft in Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/ (remember that in the IDE the Pd patch is visulized with a bug, it uses the first 4 inputs)
   * Trill Craft in Supercollider: https://github.com/jreus/Trill_SC/
   
   but use this path instead of the one in the link: ln -s ~/Trill_SC/ext/Trill ~/.local/share/SuperCollider/Extensions/TrillUGens
