@@ -1,7 +1,7 @@
 # digital-lutherie
 Code examples and tutorials for programming Bela boards (bela.io) during the Digital Lutherie course (Postdigital Lutherie Master - Tangible Music Lab)
 
-Contents:
+Contents of this page:
 * General Information
 * Supercollider Cheatsheet
 * Pure Data Cheatsheet
