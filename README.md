@@ -203,7 +203,9 @@ SynthDef(\fm7BelaTest,
   but use this path instead of the one in the link: ln -s ~/Trill_SC/ext/Trill ~/.local/share/SuperCollider/Extensions/TrillUGens
   
   * How to connect it:
+  
   ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
+  
   * fdsfd
 
 
