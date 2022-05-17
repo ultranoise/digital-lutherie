@@ -197,7 +197,8 @@ SynthDef(\fm7BelaTest,
 
   * Bela guide: https://learn.bela.io/tutorials/trill-sensors/working-with-trill-craft/
   * Changing the settings and sensitivity: https://learn.bela.io/using-trill/settings-and-sensitivity/
-  * Trill Craft with Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/
+  * Trill Craft in Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/
+  * Trill Craft in Supercollider: https://github.com/jreus/Trill_SC/
   * How to connect it:
   ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
   * fdsfd
