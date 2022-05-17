@@ -6,6 +6,7 @@ Contents of this page:
 * Supercollider Cheatsheet
 * Pure Data Cheatsheet
 * Trill Craft examples
+* Audio Input
 
 # General information on bela
 
