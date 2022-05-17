@@ -157,7 +157,6 @@ SynthDef(\fm7BelaTest,
   ![This is an image](/images/digital-input-2.png) 
   
   
-  
   * The Bela IDE Scope is accessed through 4 channels **[dac~ 27 28 29 30]**
   
   * It is also possible to init a digital pin as AUDIO RATE using a tilde in the message afte the pin nr:
@@ -172,10 +171,6 @@ SynthDef(\fm7BelaTest,
   ![This is an image](/images/analog-output-3.png) 
   ![This is an image](/images/analog-output-5.png) 
   
- * Trill Craft configuration and reading:
-
-	![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-1.png)
-	![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-2.png) 
 	
   * Sensor handling techniques:
   
@@ -196,15 +191,25 @@ SynthDef(\fm7BelaTest,
 # Trill Craft Essentials
 
   * Bela guide: https://learn.bela.io/tutorials/trill-sensors/working-with-trill-craft/
+  * How to connect it:
+  
+  ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
+  
   * Changing the settings and sensitivity: https://learn.bela.io/using-trill/settings-and-sensitivity/
+  
   * Trill Craft in Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/ (remember that in the IDE the Pd patch is visulized with a bug, it uses the first 4 inputs)
+ 
+  ![This is an image](/images/pd-trill-example.png) 
+  
+  	* Trill Craft configuration and reading:
+
+	![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-1.png)
+	![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-2.png) 
+  
   * Trill Craft in Supercollider: https://github.com/jreus/Trill_SC/
   
   but use this path instead of the one in the link: ln -s ~/Trill_SC/ext/Trill ~/.local/share/SuperCollider/Extensions/TrillUGens
   
-  * How to connect it:
-  
-  ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
   
   * Example in Supercollider:
   
