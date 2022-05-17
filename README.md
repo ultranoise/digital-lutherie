@@ -236,35 +236,27 @@ s.options.numOutputBusChannels = 2;
 
 s.waitForBoot {
 	~tr = {|t_updateTrill = 1.0|
-	var numTouchPads = 26;
-	var i2c_bus = 1; // I2C bus to use on BeagleBone, usually you want this to be 1
-	//var i2c_address = 0x18; // I2C address of Trill sensor
-	var i2c_address = 0x30;
-	var noiseThresh = 0.01; // float: 0-0.0625, with 0.0625 being the highest noise thresh
-	var prescalerOpt = 1; // sensitivity option, int: 1-8 (1=highest sensitivity, play with this for complex Trill Craft setups)
-	var rawvals;
-	var sig, ping;
+		var numTouchPads = 26;
+		var i2c_bus = 1; // I2C bus to use on BeagleBone, usually you want this to be 1
+		//var i2c_address = 0x18; // I2C address of Trill sensor
+		var i2c_address = 0x30;
+		var noiseThresh = 0.01; // float: 0-0.0625, with 0.0625 being the highest noise thresh
+		var prescalerOpt = 1; // sensitivity option, int: 1-8 (1=highest sensitivity, play with this for complex Trill Craft setups)
+		var rawvals;
+		var sig, ping;
 
-	rawvals = TrillRaw.kr(i2c_bus, i2c_address, noiseThresh, prescalerOpt, t_updateTrill);
-	SendReply.kr(Impulse.kr(2), "/trill", rawvals);
-	sig = SinOsc.ar((1..numTouchPads) * 50, mul: Lag.kr(rawvals, 0.1)) * 0.6;
-	sig = Splay.ar(sig);
-	sig = CombL.ar(sig.sum, 0.2, 0.2, 3.0, mul: 0.4) + sig;
-	ping = EnvGen.ar(Env.perc, t_updateTrill) * SinOsc.ar(440);
-	sig + ping;
+		rawvals = TrillRaw.kr(i2c_bus, i2c_address, noiseThresh, prescalerOpt, t_updateTrill);
+		SendReply.kr(Impulse.kr(2), "/trill", rawvals);
+		sig = SinOsc.ar((1..numTouchPads) * 50, mul: Lag.kr(rawvals, 0.1)) * 0.6;
+		sig = Splay.ar(sig);
+		sig = CombL.ar(sig.sum, 0.2, 0.2, 3.0, mul: 0.4) + sig;
+		ping = EnvGen.ar(Env.perc, t_updateTrill) * SinOsc.ar(440);
+		sig + ping;
 	}.play;
 
-	OSCdef(\trill, {|msg| msg[3..].postln }, "/trill");
+	//uncomment to read sensor values
+	//OSCdef(\trill, {|msg| msg[3..].postln }, "/trill");
 	
-	{ // Illustrates updating the baseline should the configuration change while the sketch is running
-		loop {
-			55.wait;
-			"Reset Trill baseline in 10s...".postln;
-			5.wait;
-			"Baseline Reset".postln;
-			~tr.set(\t_updateTrill, 1);
-		};
-	}.fork;
 };
 ```
 
