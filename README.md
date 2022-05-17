@@ -200,11 +200,9 @@ SynthDef(\fm7BelaTest,
   * Trill Craft in Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/ (remember that in the IDE the Pd patch is visulized with a bug, it uses the first 4 inputs)
  
   ![This is an image](/images/pd-trill-example.png) 
-  
-  	* Trill Craft configuration and reading:
-
-	![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-1.png)
-	![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-2.png) 
+  ![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-1.png)
+  ![This is an image](https://learn.bela.io/assets/images/tutorials/pd/capacitive-sensing-2.png) 
+	
   
   * Trill Craft in Supercollider: https://github.com/jreus/Trill_SC/
   
