@@ -104,6 +104,33 @@ Printing sensor values at the IDE console has to be done with the function ```po
 
 from the code in the last example. 
 
+In Supercollider we can also plot to the IDE Scope sending a signal to the BelaScpe bus (e.g. .belaScope(0)), but you first need to define the number of Scope channels with s.options.belaMaxScopeChannels = 8; Here an example of plotting Audio Input:
+
+```
+s = Server.default;
+
+s.options.numAnalogInChannels = 8;
+s.options.numAnalogOutChannels = 8;
+s.options.numDigitalChannels = 16;
+s.options.numInputBusChannels = 2;
+s.options.numOutputBusChannels = 2;
+s.options.maxLogins = 4;
+s.options.bindAddress = "0.0.0.0"; // allow anyone on the network connect to this server
+
+s.options.belaMaxScopeChannels = 8;
+
+s.waitForBoot({
+	SynthDef("help-scope",{ arg out=0;
+		var in = SoundIn.ar([0,1]).belaScope(0);
+		var sin = SinOsc.ar(TExpRand.kr(50,1000,Dust.kr(1!5)).lag2(1)) * LFNoise2.ar(1!5).exprange(0.01,1);
+		sin.belaScope(2);
+		Out.ar(out, Pan2.ar(sin,[-1,1])+in);
+	}).play;
+});
+
+ServerQuit.add({ 0.exit }); // quit if the button is pressed
+```
+
 Finally, if you want to can call SC3 plugins. The board has them installed. For example, the following code uses the FM7 plugin:
 
 ```
@@ -269,4 +296,21 @@ s.waitForBoot {
 
 # Audio Input
 
+	* Test Supercollider in/out
+	
+	```
+	// patching input to output
+
+	// beware of the feedback
+	
+	(
+	ServerOptions.inDevices.postln;    //  post available audio input devices
+	s.meter;    // display level meters for monitoring
+	SynthDef(\helpAudioIn, { |out|
+    	var input = AudioIn.ar(1); // first input
+    	// delay output to tame feedback in case of microphones are configured:
+    	Out.ar(out, CombN.ar(input * -25.dbamp, 0.5, 0.5, 0.001))
+	}).play
+	)
+```
 
