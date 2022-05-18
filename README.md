@@ -301,6 +301,6 @@ You can connect an electret capsule with a 2.2KOhm pull up resistor:
 
 or do the same with the popular MAX4466 electret amplifier: 
 
-![This is an image](https://eckstein-shop.de/media/image/product/13825/lg/gy-max4466soundsensormoduleelectretmicrophoneamplifier-max4466.webp)
+![This is an image](/images/gy-max4466.jpg) 
 
 Link: https://eckstein-shop.de/GY-MAX4466SoundSensorModuleElectretMicrophoneAmplifier-MAX4466EN
