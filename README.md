@@ -296,9 +296,8 @@ s.waitForBoot {
 
 # Audio Input Hardware
 
-	* You can connect an electret capsule with a 2.2KOhm pull up resistor:
+You can connect an electret capsule with a 2.2KOhm pull up resistor:
 	
 	![This is an image](https://learn.bela.io/assets/images/fritzing/pd//recording-samples.png)
 	
-	![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
 
