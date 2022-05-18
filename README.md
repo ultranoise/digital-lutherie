@@ -294,23 +294,9 @@ s.waitForBoot {
 };
 ```
 
-# Audio Input
+# Audio Input Hardware
 
-	* Test Supercollider in/out
+	* You can connect an electret capsule with a 2.2KOhm pull up resistor:
 	
-	```
-	// patching input to output
-
-	// beware of the feedback
-	
-	(
-	ServerOptions.inDevices.postln;    //  post available audio input devices
-	s.meter;    // display level meters for monitoring
-	SynthDef(\helpAudioIn, { |out|
-    	var input = AudioIn.ar(1); // first input
-    	// delay output to tame feedback in case of microphones are configured:
-    	Out.ar(out, CombN.ar(input * -25.dbamp, 0.5, 0.5, 0.001))
-	}).play
-	)
-```
+	![This is an image](https://learn.bela.io/assets/images/fritzing/pd//recording-samples.png)
 
