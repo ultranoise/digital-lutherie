@@ -296,9 +296,9 @@ s.waitForBoot {
 
 # Audio Input Hardware
 
-You can connect any type of audio input signal, from contact microphones, electret capsules, condenser microphones, etc. You only have to take care of amplifying it correctly 
+You can connect any type of audio input signal, from contact microphones, electret capsules, condenser microphones, etc. You only have to take care of amplifying it correctly. 
 
-A typical example is connecting an electret capsule with a 2.2KOhm pull up resistor: 
+A typical example is connecting an electret capsule through a 2.2KOhm pull up resistor (electret capsules need a bit of power supply to work): 
 ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//recording-samples.png)
 
 or do the same with the popular MAX4466 electret amplifier: 
