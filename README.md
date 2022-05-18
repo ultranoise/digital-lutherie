@@ -6,7 +6,7 @@ Contents of this page:
 * Supercollider Cheatsheet
 * Pure Data Cheatsheet
 * Trill Craft examples
-* Audio Input
+* Audio Input Hardware
 
 # General information on bela
 
@@ -298,3 +298,9 @@ s.waitForBoot {
 
 You can connect an electret capsule with a 2.2KOhm pull up resistor: 
 ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//recording-samples.png)
+
+or do the same with the popular MAX4466 electret amplifier: 
+
+![This is an image](https://eckstein-shop.de/media/image/product/13825/lg/gy-max4466soundsensormoduleelectretmicrophoneamplifier-max4466.webp)
+
+Link: https://eckstein-shop.de/GY-MAX4466SoundSensorModuleElectretMicrophoneAmplifier-MAX4466EN
