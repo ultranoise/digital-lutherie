@@ -104,7 +104,7 @@ Printing sensor values at the IDE console has to be done with the function ```po
 
 from the code in the last example. 
 
-In Supercollider we can also plot to the IDE Scope sending a signal to the BelaScpe bus (e.g. .belaScope(0)), but you first need to define the number of Scope channels with s.options.belaMaxScopeChannels = 8; Here an example of plotting Audio Input:
+In Supercollider we can also plot to the IDE Scope sending a signal to the BelaScpe bus (e.g. ```.belaScope(0)```), but you first need to define the number of Scope channels with ```s.options.belaMaxScopeChannels = 8;``` Here an example of plotting Audio Input:
 
 ```
 s = Server.default;
