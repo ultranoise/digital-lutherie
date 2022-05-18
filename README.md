@@ -225,7 +225,7 @@ SynthDef(\fm7BelaTest,
 # Trill Craft Essentials
 
   * Bela guide: https://learn.bela.io/tutorials/trill-sensors/working-with-trill-craft/
-  * How to connect it:
+  * How to connect it (I2C bus):
   
   ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
   
