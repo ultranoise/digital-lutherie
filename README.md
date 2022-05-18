@@ -229,7 +229,7 @@ SynthDef(\fm7BelaTest,
   
   ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
   
-  * Changing the settings and sensitivity: https://learn.bela.io/using-trill/settings-and-sensitivity/
+  * Changing the settings and sensitivity: https://learn.bela.io/using-trill/settings-and-sensitivity/ (check the example Trill -> general-settings to understand the parameters)
   
   * Trill Craft in Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/ (remember that in the IDE the Pd patch is visulized with a bug, it uses the first 4 inputs)
  
