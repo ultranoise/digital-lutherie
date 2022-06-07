@@ -310,5 +310,33 @@ Link: https://eckstein-shop.de/GY-MAX4466SoundSensorModuleElectretMicrophoneAmpl
 
 # Audio Input Software
 
-In Supercollider:
+Write microphone input to output using a bus in Supercollider:
+
+```
+s = Server.default;
+
+s.options.numAnalogInChannels = 2; // can only be 2, 4 or 8
+s.options.numAnalogOutChannels = 2;
+s.options.numDigitalChannels = 16;
+s.options.maxLogins = 4;  	   // set max number of clients
+s.options.bindAddress = "0.0.0.0"; // allow anyone on the network connect to this server
+
+s.options.blockSize = 16;
+s.options.numInputBusChannels = 2;
+s.options.numOutputBusChannels = 2;
+
+s.waitForBoot{
+
+		SynthDef("help-In", { arg out=0, in=0;
+    		var input;
+        	input = SoundIn.ar(in, 1);
+        	Out.ar(out, input);
+		}).add;
+
+	//read the input and play it out on the left channel
+	Synth("help-In", [\out, 1, \in, 1]);
+};
+
+ServerQuit.add({ 0.exit }); // quit if the button is pressed
+```
 
