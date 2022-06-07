@@ -363,6 +363,29 @@ s.waitForBoot{
 
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
+Randomly read the buffer
+```s.waitForBoot{
+	
+	
+	b = Buffer.alloc(s, 44100 * 4.0, 1);  // 4 seconds buffer
+	
+	SynthDef('looper', {arg buf, outChan=0;   //plays from buffer
+		var sig = PlayBuf.ar(1, buf, 1, LFNoise0.ar(12)*BufFrames.ir(buf), loop:1)!2; //random read
+		Out.ar(outChan, sig.dup);
+	}).add;
+
+	SynthDef('record', {arg buf;   //records in buffer
+		var in = SoundIn.ar(1);
+		RecordBuf.ar(in, buf);
+	}).add;
+
+	l = Synth('looper', ['buf', b]);
+	r = Synth('record', ['buf', b]);
+};
+
+ServerQuit.add({ 0.exit }); // quit if the button is pressed
+```
+
 
 Granularize incoming audio with GrainIn.ar
 
