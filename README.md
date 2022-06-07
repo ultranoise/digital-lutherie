@@ -340,7 +340,7 @@ s.waitForBoot{
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
 
-Record 4 seconds of sound and play it back continously
+Record 4 seconds of sound and play it back continously, can you change the playing rate?
 
 ```
 s.waitForBoot{
@@ -362,3 +362,26 @@ s.waitForBoot{
 };
 
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
+```
+
+Granularize incoming audio with GrainIn.ar
+
+```
+s.waitForBoot{
+	
+	b = Buffer.alloc(s, 44100 * 4.0, 1);  // 4 seconds buffer
+	
+	
+	SynthDef(\sagrain, {arg amp=1, grainDur=0.1, grainSpeed=10, panWidth=0.5;
+    	var pan, granulizer;
+    	pan = LFNoise0.kr(grainSpeed, panWidth);
+    	granulizer = GrainIn.ar(2, Impulse.kr(grainSpeed), grainDur, SoundIn.ar(1), pan);
+    	Out.ar(0, granulizer * amp);
+	}).add;
+	
+	x = Synth(\sagrain);
+
+};
+
+ServerQuit.add({ 0.exit }); // quit if the button is pressed
+```
