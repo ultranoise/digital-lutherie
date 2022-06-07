@@ -340,3 +340,25 @@ s.waitForBoot{
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
 
+Record 4 seconds of sound and play it back continously
+
+```
+s.waitForBoot{
+	
+	b = Buffer.alloc(s, 44100 * 4.0, 1);  // 4 seconds buffer
+	
+	SynthDef('looper', {arg buf, outChan=0;   //plays from buffer
+		var sig = PlayBuf.ar(1, buf, 1, loop: 1);
+		Out.ar(outChan, sig.dup);
+	}).add;
+
+	SynthDef('record', {arg buf;   //records in buffer
+		var in = SoundIn.ar(1);
+		RecordBuf.ar(in, buf);
+	}).add;
+
+	l = Synth('looper', ['buf', b]);
+	r = Synth('record', ['buf', b]);
+};
+
+ServerQuit.add({ 0.exit }); // quit if the button is pressed
