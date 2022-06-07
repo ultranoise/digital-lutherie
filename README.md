@@ -7,6 +7,7 @@ Contents of this page:
 * Pure Data Cheatsheet
 * Trill Craft examples
 * Audio Input Hardware
+* Audio Input Software
 
 # General information on bela
 
