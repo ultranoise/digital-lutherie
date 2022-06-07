@@ -74,7 +74,7 @@ Here an example on how to read analog input:
 	}).add;
 
 ```
-The function to read from an analog pin is ```AnalogIn.ar()```. In this case two pins are read (0 and 1) with two ```AnalogIn.ar()```
+The function to read from an analog pin (e.g. a potentiometer) is ```AnalogIn.ar()```. In this case two pins are read (0 and 1) with two ```AnalogIn.ar()```
 
 This could be an example of use: 
 
@@ -131,7 +131,7 @@ s.waitForBoot({
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
 
-Finally, if you want to can call SC3 plugins. The board has them installed. For example, the following code uses the FM7 plugin:
+Finally, you can use SC3 plugins. The board has them installed. For example, the following code uses the FM7 plugin:
 
 ```
 s.waitForBoot({
@@ -306,3 +306,8 @@ or do the same with the popular MAX4466 electret amplifier:
 ![This is an image](/images/gy-max4466.jpg) 
 
 Link: https://eckstein-shop.de/GY-MAX4466SoundSensorModuleElectretMicrophoneAmplifier-MAX4466EN
+
+# Audio Input Software
+
+In Supercollider:
+
