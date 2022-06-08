@@ -310,6 +310,11 @@ Link: https://eckstein-shop.de/GY-MAX4466SoundSensorModuleElectretMicrophoneAmpl
 
 # Audio Input Software
 
+In pure data: take a look at patch examples from: 
+
+https://guitarextended.wordpress.com/audio-effects-for-guitar-with-pure-data/
+
+
 Write microphone input to output using a bus in Supercollider:
 
 ```
