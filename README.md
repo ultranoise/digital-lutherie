@@ -350,13 +350,13 @@ Example of audio input processing (pitch shift), can you add more effects?
 ```
 s.waitForBoot{
 
-		SynthDef("help-In", { arg out=0, in=0;
+	SynthDef("help-In", { arg out=0, in=0;
     		var input;
     		var proc;
         	input = SoundIn.ar(in, 1);
         	proc = PitchShift.ar(input, 0.02, Line.kr(0.1,4,20), 0, 0.0001);
         	Out.ar(out, proc);
-		}).add;
+	}).add;
 
 	//read the input and play it out on the left channel
 	Synth("help-In", [\out, 1, \in, 1]);
@@ -421,10 +421,10 @@ s.waitForBoot{
 	
 	
 	SynthDef(\sagrain, {arg amp=1, grainDur=0.1, grainSpeed=10, panWidth=0.5;
-    	var pan, granulizer;
-    	pan = LFNoise0.kr(grainSpeed, panWidth);
-    	granulizer = GrainIn.ar(2, Impulse.kr(grainSpeed), grainDur, SoundIn.ar(1), pan);
-    	Out.ar(0, granulizer * amp);
+    		var pan, granulizer;
+    		pan = LFNoise0.kr(grainSpeed, panWidth);
+    		granulizer = GrainIn.ar(2, Impulse.kr(grainSpeed), grainDur, SoundIn.ar(1), pan);
+    		Out.ar(0, granulizer * amp);
 	}).add;
 	
 	x = Synth(\sagrain);
