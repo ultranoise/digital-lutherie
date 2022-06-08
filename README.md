@@ -314,6 +314,7 @@ In pure data: take a look at patch examples from:
 
 https://guitarextended.wordpress.com/audio-effects-for-guitar-with-pure-data/
 
+In Supercollider:
 
 Write microphone input to output using a bus in Supercollider:
 
