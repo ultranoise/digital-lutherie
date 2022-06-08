@@ -339,7 +339,7 @@ s.waitForBoot{
 
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
-Example of audio input processing (pitch shift)
+Example of audio input processing (pitch shift), can you add more effects?
 
 ```
 s.waitForBoot{
