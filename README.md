@@ -341,7 +341,8 @@ ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
 Example of audio input processing (pitch shift)
 
-```s.waitForBoot{
+```
+s.waitForBoot{
 
 		SynthDef("help-In", { arg out=0, in=0;
     		var input;
@@ -356,7 +357,7 @@ Example of audio input processing (pitch shift)
 };
 
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
-
+```
 
 Record 4 seconds of sound and play it back continously, can you change the playing rate?
 
