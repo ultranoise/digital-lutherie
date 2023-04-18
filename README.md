@@ -19,6 +19,23 @@ Writing Code with Supercollider: https://learn.bela.io/using-bela/languages/supe
 
 Writing Code with Pure Data: https://learn.bela.io/using-bela/languages/pure-data/
 
+# Connect
+
+```
+http://bela.local/
+```
+or (Mac OS X)
+
+```
+192.168.7.2
+```
+
+or (Windows)
+
+```
+192.168.6.2
+```
+
 # Supercollider Cheatsheet
 
 
