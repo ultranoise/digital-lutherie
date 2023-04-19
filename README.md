@@ -268,8 +268,10 @@ SynthDef(\fm7BelaTest,
     
 ## Tips and extended techniques
 
-    * Reading files from sdcard: **[open /mnt/sd/sample01.wav( message to [readsf~]** (similar for writing with writesf~)
+    * Reading files from sdcard: [open /mnt/sd/sample01.wav( message to [readsf~] (similar to writing with writesf~ objects)
+    
     * Communicating Pd and C++ is possible, e.g. C++ (sensor capture) -> Pd (receive messages to synth) : https://learn.bela.io/tutorials/pure-data/advanced/custom-render/
+    
   
   * Crafting GUIs: https://learn.bela.io/the-ide/crafting-guis/
   
