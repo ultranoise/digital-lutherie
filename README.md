@@ -121,12 +121,12 @@ s.waitForBoot{
 };
 ```
 
-##Analog Out
+## Analog Out
 
 In the Bela Mini there are no analog out pins, only in the Bela (standard) board. So you cannot use the function ```AnalogOut.ar()``` or you will get the error ```AnalogOut Error: the UGen needs BELA analog outputs enabled```
 
 
-##Debugging and Plotting
+## Debugging and Plotting
 
 Printing sensor values to the Bela IDE console has to be done with the function ```poll``` because values are converted to audio signals. For example:
 
