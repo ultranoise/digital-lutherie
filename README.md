@@ -38,6 +38,7 @@ or (Windows)
 
 # Supercollider Cheatsheet
 
+## Overview
 
 Only write your code within this block:
 
@@ -67,32 +68,38 @@ s.waitForBoot{
 };
 ```
 
-In this example ```var button = DigitalIn.ar(inPin);``` reads the digital input and stores the read value in ```var button```. This value is used to change the ```outPin``` value with ```DigitalOut.```
+## Digital in/out
 
-Notice the functions ```DigitalIn.ar() and DigitalOut.ar() ``` for accessing the digital pins. 
+In the previous example, notice the functions ```DigitalIn.ar() and DigitalOut.ar() ``` for accessing the digital pins.  
 
-Here an example on how to read analog input:
+```var button = DigitalIn.ar(inPin);``` reads the digital input and stores the read value in ```var button```. This value is used to change the ```outPin``` value with ```DigitalOut.```
+
+## Analog input
+
+The function to read from an analog pin (e.g. a potentiometer) is ```AnalogIn.ar()```. 
+
+Here an example on how to use analog input in a SynthDef:
 
 ```
 	
 	SynthDef('ledFade', {
 	
-		var rate = AnalogIn.ar(0).exprange(0.3, 20);
+		var rate = AnalogIn.ar(0).exprange(0.3, 20);  //use Analog 0 to define rate
 	
-		var amp = AnalogIn.ar(1);
+		var amp = AnalogIn.ar(1);  //use Analog 1 to define amplitude
 	
 		// returns a value from 0-1
 	
-		rate.poll(1); amp.poll(1);
+		rate.poll(1); amp.poll(1);  //Print the current output value of rate and amp, useful for debugging SynthDefs.
 	
-		AnalogOut.ar(0, SinOsc.ar(rate).range(0.0, amp));
+		AnalogOut.ar(0, SinOsc.ar(rate).range(0.0, amp)); //use rate and amplitude to control an oscillator
 	
 		// send to Analog Output 0
 	
 	}).add;
 
 ```
-The function to read from an analog pin (e.g. a potentiometer) is ```AnalogIn.ar()```. In this case two pins are read (0 and 1) with two ```AnalogIn.ar()```
+In this case two analog pins are read (0 and 1) using two ```AnalogIn.ar()``` functions. 
 
 This could be an example of use: 
 
@@ -114,15 +121,22 @@ s.waitForBoot{
 };
 ```
 
-In the Bela mini there are no analog out pins, only in the Bela (standard) board. So you cannot use the function ```AnalogOut.ar()``` or you will get the error ```AnalogOut Error: the UGen needs BELA analog outputs enabled```
+##Analog Out
 
-Printing sensor values at the IDE console has to be done with the function ```poll``` because values are converted to audio signals. For example:
+In the Bela Mini there are no analog out pins, only in the Bela (standard) board. So you cannot use the function ```AnalogOut.ar()``` or you will get the error ```AnalogOut Error: the UGen needs BELA analog outputs enabled```
+
+
+##Debugging and Plotting
+
+Printing sensor values to the Bela IDE console has to be done with the function ```poll``` because values are converted to audio signals. For example:
 
 ```pitch.poll(1); gain.poll(1);```
 
 from the code in the last example. 
 
-In Supercollider we can also plot to the IDE Scope sending a signal to the BelaScpe bus (e.g. ```.belaScope(0)```), but you first need to define the number of Scope channels with ```s.options.belaMaxScopeChannels = 8;``` Here an example of plotting Audio Input:
+In Supercollider we can also plot to the IDE Scope sending a signal to the BelaScpe bus (e.g. ```.belaScope(0)```), but you first need to define the number of Scope channels with ```s.options.belaMaxScopeChannels = 8;``` 
+
+Here there is an example of plotting Audio Input:
 
 ```
 s = Server.default;
@@ -148,6 +162,8 @@ s.waitForBoot({
 
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
+
+## Extensions and SC3 Plugins
 
 Finally, you can use SC3 plugins. The board has them installed. For example, the following code uses the FM7 plugin:
 
