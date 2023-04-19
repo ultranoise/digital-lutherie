@@ -259,7 +259,7 @@ SynthDef(\fm7BelaTest,
   ![This is an image](/images/analog-output-5.png) 
   
 	
-## Sensor handling techniques:
+* Sensor handling techniques
   
     ![This is an image](/images/sensor1.png)
     ![This is an image](/images/sensor2.png)
