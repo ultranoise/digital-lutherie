@@ -201,17 +201,22 @@ SynthDef(\fm7BelaTest,
 
 # Pure Data Cheatsheet
 
-  * The workflow: first edit a Pd patch in your computer then upload it to the Bela board. You cannot edit Pd patches in the IDE. 
-  * Create a new project and directly Drag-&-Drop Pd patch into the browser
+## General
+
+  * Workflow: Pd patch can only edited in your computer. You cannot edit Pd patches in the IDE. After every edit one needs to manuall upload (drop) the patch to the IDE.
+  
+  * Usually we first create a new Pd project and then we directly Drag-&-Drop the Pd patch into the browser.
   
   * Requirements for a patch to compile: 
   
   	1) the top level patch has to have the name ```_main.pd```
-  	2) in case you are using an existing project, remove any render.cpp from the project folder
+  	2) in case you are using an existing project, remove any render.cpp from the project folder (usually you will not notice this, only in case of errors)
   
-  * Stereo AUDIO IN/OUT through: **[adc~ 1 2] [dac~ 1 2]** 
+## Inputs and Outputs
+
+  * Stereo AUDIO IN/OUT: **[adc~ 1 2] [dac~ 1 2]** 
   
-  * Analog in/out pins are accessed through adc~ and dac~. Audio rate signals and not control rate data are used to deal with them.
+  * Analog in/out for sensors or actuators are also accessed through ```[adc~]``` and ```[dac~]``` objects. Then we get sensor values at audio signal rate. We cannot use typical control rate objets to deal with them (use *~ instead of *)
   	
   * Digital in/out pin are accessed through messages at control rate and it is also possible to deal with them at audio rate. 
   
