@@ -300,14 +300,22 @@ SynthDef(\fm7BelaTest,
   How to install:
   
   1) Go to https://github.com/jreus/Trill_SC/ click on the green "Code" button and download a ZIP of this repository to your computer
+  
   2) Extract the contents of the ZIP and rename the folder "Trill_SC" (remove the "-master" part).
+  
   3) Open a Terminal in your computer and go to the folder where you downloaded Trill_SC (make use of "cd" commands)
+  
   3.1) Mac and Linux computers: you simply open "Terminal"
+  
   3.2) Windows: try typing "scp" in the terminal. If it does not exist, the easiest is downloading and installing the open source apps WindSCP (https://winscp.net/eng/index.php) or PuTTy https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-  5) In the terminal type "scp -r Trill_SC root@192.168.7.2:" to copy the folder to the Bela
-  6) type "ssh root@192.168.7.2" to remotely access the Bela board
-  7) type "ln -s ~/Trill_SC/ext/Trill ~/.local/share/SuperCollider/Extensions/TrillUGens"
-  8) type "exit" to close the ssh connection with the Bela board
+  
+  4) In the terminal type "scp -r Trill_SC root@192.168.7.2:" to copy the folder to the Bela
+  
+  5) type "ssh root@192.168.7.2" to remotely access the Bela board
+  
+  6) type "ln -s ~/Trill_SC/ext/Trill ~/.local/share/SuperCollider/Extensions/TrillUGens"
+  
+  7) type "exit" to close the ssh connection with the Bela board
   
   
   
