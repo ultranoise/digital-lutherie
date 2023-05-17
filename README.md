@@ -287,16 +287,29 @@ SynthDef(\fm7BelaTest,
   
   * Changing the settings and sensitivity: https://learn.bela.io/using-trill/settings-and-sensitivity/ (check the example Trill -> general-settings to understand the parameters)
   
-  * Trill Craft in Pure Data: https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/ (remember that in the IDE the Pd patch is visulized with a bug, it uses the first 4 inputs)
+  ## Trill Craft in Pure Data: 
+  https://learn.bela.io/tutorials/pure-data/sensors/capacitive-sensing/ (remember that in the IDE the Pd patch is visulized with a bug, it uses the first 4 inputs)
  
   ![This is an image](/images/pd-trill-example.png) 	
   
-  * Trill Craft in Supercollider: https://github.com/jreus/Trill_SC/
+  ## Trill Craft in Supercollider: 
+  We need to copy a UGen to the Bela. General Information:
   
-  but use this path instead of the one in the link: ln -s ~/Trill_SC/ext/Trill ~/.local/share/SuperCollider/Extensions/TrillUGens
+  https://github.com/jreus/Trill_SC/
+  
+  How to install:
+  
+  1) Go to https://github.com/jreus/Trill_SC/ click on the green "Code" button and download a ZIP of this repository to your computer
+  2) Extract the contents of the ZIP and rename the folder "Trill_SC" (remove the "-master" part).
+  3) Open a Terminal in your computer and go to the folder where you downloaded Trill_SC (make use of "cd" commands)
+  4) type "scp -r Trill_SC root@192.168.7.2:" to copy the folder to the Bela
+  5) type "ssh root@192.168.7.2" to remotely access the Bela board
+  6) type "ln -s ~/Trill_SC/ext/Trill ~/.local/share/SuperCollider/Extensions/TrillUGens"
+  7) type "exit" to close the ssh connection with the Bela board
   
   
-  * Example in Supercollider:
+  
+  ## Example in Supercollider:
   
 ```
 /**
