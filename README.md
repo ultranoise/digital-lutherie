@@ -336,7 +336,6 @@ s.waitForBoot {
 		var sig, ping;
 
 		rawvals = TrillRaw.kr(i2c_bus, i2c_address, noiseThresh, prescalerOpt, t_updateTrill);
-		SendReply.kr(Impulse.kr(2), "/trill", rawvals);
 		sig = SinOsc.ar((1..numTouchPads) * 50, mul: Lag.kr(rawvals, 0.1)) * 0.6;
 		sig = Splay.ar(sig);
 		sig = CombL.ar(sig.sum, 0.2, 0.2, 3.0, mul: 0.4) + sig;
