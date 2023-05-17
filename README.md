@@ -285,6 +285,8 @@ SynthDef(\fm7BelaTest,
   
   ![This is an image](https://learn.bela.io/assets/images/fritzing/pd//capacitive-sensing.png)
   
+  You only have to connect four cables: V+ to 3.3V, GND and the pins SDA and SCL of Trill to the respective pins of Bela. 
+  
   * Changing the settings and sensitivity: https://learn.bela.io/using-trill/settings-and-sensitivity/ (check the example Trill -> general-settings to understand the parameters)
   
   ## Trill Craft in Pure Data: 
