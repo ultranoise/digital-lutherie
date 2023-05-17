@@ -311,7 +311,7 @@ SynthDef(\fm7BelaTest,
   
   4) In the terminal type "scp -r Trill_SC root@192.168.7.2:" to copy the folder to the Bela
   
-  5) type "ssh root@192.168.7.2" to remotely access the Bela board
+  5) In the terminal type "ssh root@192.168.7.2" to remotely access the Bela board
   
   6) type "ln -s ~/Trill_SC/ext/Trill ~/.local/share/SuperCollider/Extensions/TrillUGens"
   
