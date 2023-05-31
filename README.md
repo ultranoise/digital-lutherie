@@ -130,21 +130,41 @@ In the Bela Mini there are no analog out pins, only in the Bela (standard) board
 
 The particular server-client architecture of supercollider requires special management of messages if you want to for example print sensor values in the console. The easiest is sending OSC messages from the server to the IDE running in your laptop. This can be done with the following a couple for SendReply.kr and OSCdef functions:
 
+```
+s = Server.default;
 
-s.waitForBoot {
-	....
-	SendReply.kr(Impulse.kr(2), "/trill", rawvals);
-	.....
+s.options.numAnalogInChannels = 2;
+s.options.numAnalogOutChannels = 2;
+s.options.numDigitalChannels = 16;
+s.options.maxLogins = 4;  	   // set max number of clients
+s.options.bindAddress = "0.0.0.0"; // allow anyone on the network connect to this server
+
+s.options.blockSize = 16;
+s.options.numInputBusChannels = 2;
+s.options.numOutputBusChannels = 2;
+
+s.waitForBoot{
+	SynthDef('buttonControl', {arg inPin, outPin;
+		// read the value at the input
+		var sensor = AnalogIn.ar(0);
+		
+		var pitch = AnalogIn.ar(0).exprange( 200, 5000 );
+		// analog input 1 controls the amplitude
+		var gain = AnalogIn.ar(1); // returns a value from 0-1
+		Out.ar(0, SinOsc.ar(pitch).dup * gain);
+		//send the value to the console
+		SendReply.kr(Impulse.kr(2), "/sensor", sensor); 		
+		
+	}).add;	
+	
+	s.sync;
+	
+	a = Synth('buttonControl', ['inPin', 1, 'outPin', 0]);
+	OSCdef(\trill, {|msg| msg[3..].postln }, "/sensor");
 };
 
-OSCdef(\trill, {|msg| msg[3..].postln }, "/trill");
-
-
-Printing sensor values to the Bela IDE console has to be done with the function ```poll``` because values are converted to audio signals. For example:
-
-```pitch.poll(1); gain.poll(1);```
-
-from the code in the last example. 
+ServerQuit.add({ 0.exit }); // quit if the button is pressed
+```
 
 In Supercollider we can also plot to the IDE Scope sending a signal to the BelaScpe bus (e.g. ```.belaScope(0)```), but you first need to define the number of Scope channels with ```s.options.belaMaxScopeChannels = 8;``` 
 
