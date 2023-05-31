@@ -128,7 +128,7 @@ In the Bela Mini there are no analog out pins, only in the Bela (standard) board
 
 ## Debugging and Plotting
 
-The particular server-client architecture of supercollider requires special management of messages if you want to for example print sensor values in the console. The easiest is sending OSC messages from the server to the IDE running in your laptop. This can be done with the following a couple for SendReply.kr and OSCdef functions:
+The particular server-client architecture of supercollider requires special management of messages if you want to for example print sensor values in the console. The easiest is sending OSC messages from the server to the IDE running in your laptop. This can be done with the following a couple of ```SendReply.kr``` and ```OSCdef``` functions:
 
 ```
 s = Server.default;
