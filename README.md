@@ -264,6 +264,36 @@ s.waitForBoot{
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
 
+Play some tweets by Mr Magnusson
+
+```
+s = Server.default;
+
+s.options.numAnalogInChannels = 8; // can be 2, 4 or 8
+s.options.numAnalogOutChannels = 8; // can be 2, 4 or 8
+s.options.numDigitalChannels = 16;
+s.options.maxLogins = 8;
+
+s.options.pgaGainLeft = 5;     // sets the pregain for the left audio input (dB)
+s.options.pgaGainRight = 5;    // sets the pregain for the right audio input (dB)
+s.options.headphoneLevel = -3; // sets the headphone level (-dB)
+s.options.speakerMuted = 1;    // set true to mute the speaker amp and draw a little less power
+s.options.dacLevel = 0;       // sets the gain of the analog dac to (dB)
+s.options.adcLevel = 0;       // sets the gain of the analog adc to (dB)
+
+s.options.blockSize = 16;
+s.options.numInputBusChannels = 10;
+s.options.numOutputBusChannels = 2;
+
+//some tweets by Mr Magnusson
+s.waitForBoot {
+	//play{a=Saw;b=220;c=0.3;a.ar(b,c)+a.ar(LFNoise2.ar(1).range(1.1892,1.2599)*b,c)+a.ar(b*1.5,c)!2}
+	//play{i=Dust.ar(4);a=0.5;b=5e-3;q=Decay2;p=PulseDivider;n=WhiteNoise.ar;(SinOsc.ar(80)*q.ar(p.ar(i,2),a,b)+(n*q.ar(p.ar(i,4),b,a)))!2}
+    play{{a=SinOsc;l=LFNoise2;a.ar(666*a.ar(l.ar(l.ar(0.5))*9)*RLPF.ar(Saw.ar(9),l.ar(0.5).range(9,999),l.ar(2))).cubed}!2} 	
+};
+
+```
+
 ## Extensions and SC3 Plugins
 
 Finally, you can use SC3 plugins. The board has them installed. For example, the following code uses the FM7 plugin:
