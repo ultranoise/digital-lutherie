@@ -452,7 +452,7 @@ s.options.numOutputBusChannels = 2;
 
 s.waitForBoot {
 	~tr = {|t_updateTrill = 1.0|
-		var numTouchPads = 26;
+		var numTouchPads = 30;
 		var i2c_bus = 1; // I2C bus to use on BeagleBone, usually you want this to be 1
 		//var i2c_address = 0x18; // I2C address of Trill sensor
 		var i2c_address = 0x30;
@@ -463,7 +463,7 @@ s.waitForBoot {
 
 		rawvals = TrillRaw.kr(i2c_bus, i2c_address, noiseThresh, prescalerOpt, t_updateTrill);
 		//uncomment to read values at your laptop Bela console
-		//SendReply.kr(Impulse.kr(2), "/trill", rawvals);
+		SendReply.kr(Impulse.kr(2), "/trill", rawvals);
 		
 		sig = SinOsc.ar((1..numTouchPads) * 50, mul: Lag.kr(rawvals, 0.1)) * 0.6;
 		sig = Splay.ar(sig);
@@ -473,7 +473,7 @@ s.waitForBoot {
 	}.play;
 
 	//uncomment to read sensor values
-	//OSCdef(\trill, {|msg| msg[3..].postln }, "/trill");
+	OSCdef(\trill, {|msg| msg[3..].postln }, "/trill");
 	
 };
 ```
