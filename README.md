@@ -41,6 +41,12 @@ through terminal
 ssh root@bela.local
 ```
 
+# MIDI test
+
+```
+amidi -l
+```
+
 # Supercollider Cheatsheet
 
 ## Overview
