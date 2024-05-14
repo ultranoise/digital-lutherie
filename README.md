@@ -230,7 +230,39 @@ s.waitForBoot({
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
 
+Example input periodic granulator
 
+```
+s = Server.default;
+
+s.options.numAnalogInChannels = 2; // can only be 2, 4 or 8
+s.options.numAnalogOutChannels = 2;
+s.options.numDigitalChannels = 16;
+s.options.maxLogins = 4;  	   // set max number of clients
+s.options.bindAddress = "0.0.0.0"; // allow anyone on the network connect to this server
+
+s.options.blockSize = 16;
+s.options.numInputBusChannels = 2;
+s.options.numOutputBusChannels = 2;
+
+s.waitForBoot{
+	
+	//b = Buffer.alloc(s, 44100 * 4.0, 1);  // 4 seconds buffer
+	
+	
+	SynthDef(\sagrain, {arg amp=1, grainDur=0.05, grainSpeed=10, panWidth=0.5;
+    	var pan, granulizer;
+    	pan = LFNoise0.kr(grainSpeed, panWidth);
+    	granulizer = GrainIn.ar(2, Impulse.kr(grainSpeed), grainDur, SoundIn.ar([0,1]), pan);
+    	Out.ar(0, granulizer * amp);
+	}).add;
+	
+	x = Synth(\sagrain);
+
+};
+
+ServerQuit.add({ 0.exit }); // quit if the button is pressed
+```
 
 ## Extensions and SC3 Plugins
 
