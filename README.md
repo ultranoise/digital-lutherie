@@ -205,6 +205,30 @@ ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
 
 ## Audio Processing
+Example of dynamic pitch shifting
+```
+s = Server.default;
+
+s.options.numAnalogInChannels = 8;
+s.options.numAnalogOutChannels = 8;
+s.options.numDigitalChannels = 16;
+s.options.numInputBusChannels = 2;
+s.options.numOutputBusChannels = 2;
+s.options.maxLogins = 4;
+s.options.bindAddress = "0.0.0.0"; // allow anyone on the network connect to this server
+
+s.options.belaMaxScopeChannels = 8;
+
+s.waitForBoot({
+	SynthDef("help-scope",{ arg out=0;
+		var in = SoundIn.ar([0,1]).belaScope(0);
+		var proc = PitchShift.ar(in, 0.02, Line.kr(0.1,4,20), 0, 0.001);
+		Out.ar(out, proc);
+	}).play;
+});
+
+ServerQuit.add({ 0.exit }); // quit if the button is pressed
+```
 
 
 
