@@ -36,6 +36,11 @@ or (Windows)
 192.168.6.2
 ```
 
+through terminal
+```
+ssh root@bela.local
+```
+
 # Supercollider Cheatsheet
 
 ## Overview
