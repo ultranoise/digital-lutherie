@@ -197,14 +197,16 @@ s.options.belaMaxScopeChannels = 8;
 s.waitForBoot({
 	SynthDef("help-scope",{ arg out=0;
 		var in = SoundIn.ar([0,1]).belaScope(0);
-		var sin = SinOsc.ar(TExpRand.kr(50,1000,Dust.kr(1!5)).lag2(1)) * LFNoise2.ar(1!5).exprange(0.01,1);
-		sin.belaScope(2);
-		Out.ar(out, Pan2.ar(sin,[-1,1])+in);
+		Out.ar(out, in);
 	}).play;
 });
 
 ServerQuit.add({ 0.exit }); // quit if the button is pressed
 ```
+
+## Audio Processing
+
+
 
 ## Extensions and SC3 Plugins
 
