@@ -2,12 +2,12 @@
 Code examples and tutorials for programming Bela boards (bela.io) during the Digital Lutherie course (Postdigital Lutherie Master - Tangible Music Lab)
 
 Contents of this page:
-* General Information
-* Supercollider Cheatsheet
-* Pure Data Cheatsheet
-* Trill Craft examples
-* Audio Input Hardware
-* Audio Input Software
+* [General Information](#general-information-on-bela)
+* [Supercollider Cheatsheet](#supercollider-cheatsheet)
+* [Pure Data Cheatsheet](#pure-data-cheatsheet)
+* [Trill Craft examples](#trill-craft-essentials)
+* [Audio Input Hardware](#audio-input-hardware)
+* [Audio Input Software](#audio-input-software)
 
 # General information on bela
 
