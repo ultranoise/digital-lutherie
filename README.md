@@ -460,51 +460,67 @@ Functional example of using TrillRaw UGen.
 
 (C) 2019 Jonathan Reus
 
+Refactored by Gorka Egino Arroyo (2024)
+
 **/
+
+// SETTINGS
+~init = {
+	postln("Setting SuperCollider initial configuration...");
+	s.options.numAnalogInChannels = 8; // can be 2, 4 or 8
+	s.options.numAnalogOutChannels = 8; // can be 2, 4 or 8
+	s.options.numDigitalChannels = 16;
+	s.options.maxLogins = 8;
+	
+	s.options.pgaGainLeft = 5;     // sets the pregain for the left audio input (dB)
+	s.options.pgaGainRight = 5;    // sets the pregain for the right audio input (dB)
+	s.options.headphoneLevel = -1; // sets the headphone level (-dB)
+	s.options.speakerMuted = 1;    // set true to mute the speaker amp and draw a little less power
+	s.options.dacLevel = 0;       // sets the gain of the analog dac to (dB)
+	s.options.adcLevel = 0;       // sets the gain of the analog adc to (dB)
+	
+	s.options.blockSize = 16;
+	s.options.numInputBusChannels = 10;
+	s.options.numOutputBusChannels = 2;
+	postln("SuperCollider configured successfully");
+};
+
+
+~trill_settings = ( // This is data structure is called "event"
+    numTouchPads: 30, // maximum 30
+    i2c_bus: 1, // I2C bus to use on BeagleBone, usually you want this to be 1
+	i2c_address: 0x30, // the i2C address of Trill sensor
+	noiseThresh: 0.01, // float: 0-0.0625, with 0.0625 being the highest noise thresh
+	prescalerOpt: 2, // sensitivity option, int: 1-8 (1=highest sensitivity, play with this for complex Trill Craft setups)
+);
+
+// UTILITIES
+OSCdef(\trill, {|msg| msg[3..].postln }, "/trill"); // utility for allowing trill values to be posted
+
+// START
 s = Server.default;
-
-s.options.numAnalogInChannels = 8; // can be 2, 4 or 8
-s.options.numAnalogOutChannels = 8; // can be 2, 4 or 8
-s.options.numDigitalChannels = 16;
-s.options.maxLogins = 8;
-
-s.options.pgaGainLeft = 5;     // sets the pregain for the left audio input (dB)
-s.options.pgaGainRight = 5;    // sets the pregain for the right audio input (dB)
-s.options.headphoneLevel = -1; // sets the headphone level (-dB)
-s.options.speakerMuted = 1;    // set true to mute the speaker amp and draw a little less power
-s.options.dacLevel = 0;       // sets the gain of the analog dac to (dB)
-s.options.adcLevel = 0;       // sets the gain of the analog adc to (dB)
-
-s.options.blockSize = 16;
-s.options.numInputBusChannels = 10;
-s.options.numOutputBusChannels = 2;
-
+~init.();
 
 s.waitForBoot {
-	~tr = {|t_updateTrill = 1.0|
-		var numTouchPads = 30;
-		var i2c_bus = 1; // I2C bus to use on BeagleBone, usually you want this to be 1
-		//var i2c_address = 0x18; // I2C address of Trill sensor
-		var i2c_address = 0x30;
-		var noiseThresh = 0.01; // float: 0-0.0625, with 0.0625 being the highest noise thresh
-		var prescalerOpt = 1; // sensitivity option, int: 1-8 (1=highest sensitivity, play with this for complex Trill Craft setups)
-		var rawvals;
-		var sig, ping;
-
-		rawvals = TrillRaw.kr(i2c_bus, i2c_address, noiseThresh, prescalerOpt, t_updateTrill);
-		//uncomment to read values at your laptop Bela console
-		SendReply.kr(Impulse.kr(2), "/trill", rawvals);
-		
-		sig = SinOsc.ar((1..numTouchPads) * 50, mul: Lag.kr(rawvals, 0.1)) * 0.6;
-		sig = Splay.ar(sig);
-		sig = CombL.ar(sig.sum, 0.2, 0.2, 3.0, mul: 0.4) + sig;
-		ping = EnvGen.ar(Env.perc, t_updateTrill) * SinOsc.ar(440);
-		sig + ping;
-	}.play;
-
-	//uncomment to read sensor values
-	OSCdef(\trill, {|msg| msg[3..].postln }, "/trill");
+	var postTrillValues = true;
 	
+	{|t_updateTrill = 1.0| // time between sensor readings, in seconds
+		var raw_vals;
+		var sig;
+
+		raw_vals = TrillRaw.kr(~trill_settings[\i2c_bus], ~trill_settings[\i2c_address], ~trill_settings[\noiseThresh], ~trill_settings[\prescalerOpt], t_updateTrill);
+		raw_vals = raw_vals[(0..~trill_settings[\numTouchPads]-1)]; // only keep the specified number of touch pads
+		
+		if (postTrillValues) {SendReply.kr(Impulse.kr(2), "/trill", raw_vals)};
+		
+		sig = SinOsc.ar(freq: (1..~trill_settings[\numTouchPads]) * 50); // harmonic sound with fundamental @ 50Hz; harmonicsN == touchPadsN
+		sig = sig * Lag.kr(raw_vals, lagTime: 0.1); // multiply amp of each harmonic by the smoothed out value of the corresponding touch pad
+		sig = sig * 0.6; // turn down the signal
+		sig = Splay.ar(sig); // pan the harmonic sound in the stereo field
+		sig = CombL.ar(sig.sum, maxdelaytime: 0.2, delaytime: 0.2, decaytime: 3.0) * 0.4 + sig; // add a comb delay line
+
+		sig;
+	}.play;
 };
 ```
 
