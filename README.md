@@ -21,6 +21,8 @@ Writing Code with Supercollider: https://learn.bela.io/using-bela/languages/supe
 
 Writing Code with Pure Data: https://learn.bela.io/using-bela/languages/pure-data/
 
+Technical reference (terminal, network, SD, etc): https://learn.bela.io/using-bela/
+
 # Connect
 
 ```
