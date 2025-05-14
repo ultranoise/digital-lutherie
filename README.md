@@ -51,6 +51,84 @@ ssh root@bela.local
 amidi -l
 ```
 
+
+# Pure Data Cheatsheet
+
+## General
+
+  * Workflow: Pd patch can only edited in your computer. You cannot edit Pd patches in the IDE. After every edit one needs to manuall upload (drop) the patch to the IDE.
+  
+  * Usually we first create a new Pd project and then we directly Drag-&-Drop the Pd patch into the browser.
+  
+  * Requirements for a patch to compile: 
+  
+  	1) the top level patch has to have the name ```_main.pd```
+  	2) in case you are using an existing project, remove any render.cpp from the project folder (usually you will not notice this, only in case of errors)
+  
+## Inputs and Outputs
+
+### Audio in/out
+
+  * Stereo AUDIO IN/OUT objects: **[adc~ 1 2] [dac~ 1 2]** 
+  
+### Analog in/out pins
+
+  * Analog in/out pins for sensor reading or actuators writing are also accessed using ```[adc~]``` and ```[dac~]``` objects from channels 3 to 10. Sensor data is obtained at audio signal rate. Therefore we usually do not use control rate objets but signal rate object (use *~ instead of *).
+  
+  * There are 8 analog input pins. Read Analog IN pins using [adc~ 3 4 5 6 7 8 9 10] . 
+  
+  * Write values to the analog OUT pins (LEDs, motors, etc) using [dac~ 3 4 5 6 7 8 9 10]. Remember that Bela mini does not have analog out pins (only the bigger version).
+  * Often we make use of the [snapshot~] object to convert audio signals to numbers and [sig~] to convert numbers to signals.  
+   
+### Digital in/out pins
+
+  * Digital in/out pin are accessed through messages at control rate (but it is also possible to deal with them at audio rate as we will see). 
+  
+  * Examples of how to deal with digital pins (in/out configuration & read/write):  
+  
+  ![This is an image](/images/digital-output-1.png) 
+  ![This is an image](/images/digital-output-2.png) 
+  ![This is an image](/images/digital-input-1.png) 
+  ![This is an image](/images/digital-input-2.png) 
+  
+  * It is also possible to init a digital pin as AUDIO RATE using a tilde in the message afte the pin nr:
+	
+	![This is an image](/images/distance-sensor-1.png) 
+
+### Debuggin and plotting
+  
+  * The Bela IDE Scope is accessed through 4 channels **[dac~ 27 28 29 30]**
+  * You can use [print] to write messages to the console.
+  * Use the [snapshot~] object to convert audio signals to numbers (which can be printed).
+  
+
+  
+## Usage examples: 
+  
+  ![This is an image](/images/analog-input-4.png) 
+  ![This is an image](/images/analog-input-7.png) 
+  ![This is an image](/images/analog-output-1.png) 
+  ![This is an image](/images/analog-output-3.png) 
+  ![This is an image](/images/analog-output-5.png) 
+  
+	
+* Sensor handling techniques
+  
+    ![This is an image](/images/sensor1.png)
+    ![This is an image](/images/sensor2.png)
+    ![This is an image](/images/sensor3.png)
+    ![This is an image](/images/sensor4.png)
+    
+## Tips and extended techniques
+
+    * Reading files from sdcard: [open /mnt/sd/sample01.wav( message to [readsf~] (similar to writing with writesf~ objects)
+    
+    * Communicating Pd and C++ is possible, e.g. C++ (sensor capture) -> Pd (receive messages to synth) : https://learn.bela.io/tutorials/pure-data/advanced/custom-render/
+    
+  
+  * Crafting GUIs: https://learn.bela.io/the-ide/crafting-guis/
+  
+  
 # Supercollider Cheatsheet
 
 ## Overview
@@ -332,85 +410,7 @@ SynthDef(\fm7BelaTest,
   s.sync;
   ~synth = Synth(\fm7BelaTest, [\freq, 110, \attackTime, 3], target: s);
 });
-```
-
-# Pure Data Cheatsheet
-
-## General
-
-  * Workflow: Pd patch can only edited in your computer. You cannot edit Pd patches in the IDE. After every edit one needs to manuall upload (drop) the patch to the IDE.
-  
-  * Usually we first create a new Pd project and then we directly Drag-&-Drop the Pd patch into the browser.
-  
-  * Requirements for a patch to compile: 
-  
-  	1) the top level patch has to have the name ```_main.pd```
-  	2) in case you are using an existing project, remove any render.cpp from the project folder (usually you will not notice this, only in case of errors)
-  
-## Inputs and Outputs
-
-### Audio in/out
-
-  * Stereo AUDIO IN/OUT objects: **[adc~ 1 2] [dac~ 1 2]** 
-  
-### Analog in/out pins
-
-  * Analog in/out pins for sensor reading or actuators writing are also accessed using ```[adc~]``` and ```[dac~]``` objects from channels 3 to 10. Sensor data is obtained at audio signal rate. Therefore we usually do not use control rate objets but signal rate object (use *~ instead of *).
-  
-  * There are 8 analog input pins. Read Analog IN pins using [adc~ 3 4 5 6 7 8 9 10] . 
-  
-  * Write values to the analog OUT pins (LEDs, motors, etc) using [dac~ 3 4 5 6 7 8 9 10]. Remember that Bela mini does not have analog out pins (only the bigger version).
-  * Often we make use of the [snapshot~] object to convert audio signals to numbers and [sig~] to convert numbers to signals.  
-   
-### Digital in/out pins
-
-  * Digital in/out pin are accessed through messages at control rate (but it is also possible to deal with them at audio rate as we will see). 
-  
-  * Examples of how to deal with digital pins (in/out configuration & read/write):  
-  
-  ![This is an image](/images/digital-output-1.png) 
-  ![This is an image](/images/digital-output-2.png) 
-  ![This is an image](/images/digital-input-1.png) 
-  ![This is an image](/images/digital-input-2.png) 
-  
-  * It is also possible to init a digital pin as AUDIO RATE using a tilde in the message afte the pin nr:
-	
-	![This is an image](/images/distance-sensor-1.png) 
-
-### Debuggin and plotting
-  
-  * The Bela IDE Scope is accessed through 4 channels **[dac~ 27 28 29 30]**
-  * You can use [print] to write messages to the console.
-  * Use the [snapshot~] object to convert audio signals to numbers (which can be printed).
-  
-
-  
-## Usage examples: 
-  
-  ![This is an image](/images/analog-input-4.png) 
-  ![This is an image](/images/analog-input-7.png) 
-  ![This is an image](/images/analog-output-1.png) 
-  ![This is an image](/images/analog-output-3.png) 
-  ![This is an image](/images/analog-output-5.png) 
-  
-	
-* Sensor handling techniques
-  
-    ![This is an image](/images/sensor1.png)
-    ![This is an image](/images/sensor2.png)
-    ![This is an image](/images/sensor3.png)
-    ![This is an image](/images/sensor4.png)
-    
-## Tips and extended techniques
-
-    * Reading files from sdcard: [open /mnt/sd/sample01.wav( message to [readsf~] (similar to writing with writesf~ objects)
-    
-    * Communicating Pd and C++ is possible, e.g. C++ (sensor capture) -> Pd (receive messages to synth) : https://learn.bela.io/tutorials/pure-data/advanced/custom-render/
-    
-  
-  * Crafting GUIs: https://learn.bela.io/the-ide/crafting-guis/
-  
-   
+``` 
 
 
 # Trill Craft Essentials
