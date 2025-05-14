@@ -3,8 +3,8 @@ Code examples and tutorials for programming Bela boards (bela.io) during the Dig
 
 Contents of this page:
 * [General Information](#general-information-on-bela)
-* [Supercollider Cheatsheet](#supercollider-cheatsheet)
 * [Pure Data Cheatsheet](#pure-data-cheatsheet)
+* [Supercollider Cheatsheet](#supercollider-cheatsheet)
 * [Trill Craft examples](#trill-craft-essentials)
 * [Audio Input Hardware](#audio-input-hardware)
 * [Audio Input Software](#audio-input-software)
